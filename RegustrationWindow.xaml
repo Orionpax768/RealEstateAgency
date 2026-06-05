@@ -9,10 +9,26 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
-                <GradientStop Color="#FF00D28A" Offset="1"/>
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF63CCA9" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="734" Height="414" RenderTransformOrigin="0.499,0.649">
+            <TextBlock Text="Travis Scott" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,15,0,5" Foreground="#FFFFE6E6"/>
+            <Rectangle Height="82" Stroke="#FF669787" Width="87">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/free-icon-office-5380554.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock x:Name="txtBlkFullname" TextWrapping="Wrap" Text="ФИО*" FontSize="16" FontWeight="Bold" Width="54" Foreground="#FFFFE6E6" Margin="-125,20,0,0"/>
+            <TextBox x:Name="txtBxFullname" TextWrapping="Wrap" Text="" Width="183" FontSize="16" FontWeight="Bold" Foreground="#FF2671EC" BorderBrush="#2B579A"/>
+            <TextBlock TextWrapping="Wrap" Text="Email/Number*" Height="28" Width="134" FontSize="16" FontWeight="Bold" Foreground="#FFFFE6E6" Margin="-45,10,0,0"/>
+            <TextBox x:Name="txtBxEmail" TextWrapping="Wrap" Text="" Height="25" Width="181" Foreground="#FF2671EC" BorderBrush="#2B579A" FontSize="16" FontWeight="Bold"/>
+            <TextBlock x:Name="txtBlkPassword" TextWrapping="Wrap" Text="Пароль*" Width="85" FontSize="16" FontWeight="Bold" Foreground="#FFFFE6E6" Margin="-90,10,0,0"/>
+            <PasswordBox x:Name="txtBxPassword" Width="179" Foreground="#FF2671EC" Height="22" BorderBrush="#2B579A" FontSize="16" FontWeight="Bold"/>
+            <TextBlock x:Name="txtBlkPassword2" TextWrapping="Wrap" Text="Подтверждение*" Width="153" FontSize="16" FontWeight="Bold" Foreground="#FFFFE6E6" Margin="-25,10,0,0"/>
+            <PasswordBox x:Name="txtBxPassword2" Width="181" Foreground="#FF2671EC" Height="22" BorderBrush="#2B579A" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <Button x:Name="btnRegistration" Content="Зарегистрироваться" Width="186" Margin="540,15,0,0" Background="Black" BorderBrush="White" Foreground="#FFFFE6E6" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Height="26" Click="btnRegistration_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

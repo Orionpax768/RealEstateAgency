@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegustrationWindow.xaml.cs">
       <DependentUpon>RegustrationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +110,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="XXL_height.jpg.jpe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="free-icon-office-5380554.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="free-icon-my-account-17200091.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="free-icon-mail-646135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="free-icon-lock-8472244.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

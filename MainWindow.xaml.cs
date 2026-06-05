@@ -32,7 +32,9 @@ namespace RealEstateAgency
 
         private void btnOpenRegister_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Окно регистрации в разработке", "Инфо");
+            RegustrationWindow regustrationWindow = new RegustrationWindow();
+            regustrationWindow.Owner = this;
+            regustrationWindow.ShowDialog();
         }
     }
 }
