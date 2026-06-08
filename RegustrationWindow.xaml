@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF63CCA9" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="734" Height="414" RenderTransformOrigin="0.499,0.649">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="780" Height="414" RenderTransformOrigin="0.499,0.649">
             <TextBlock Text="Travis Scott" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,15,0,5" Foreground="#FFFFE6E6"/>
             <Rectangle Height="82" Stroke="#FF669787" Width="87">
                 <Rectangle.Fill>
