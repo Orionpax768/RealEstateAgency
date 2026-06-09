@@ -5,30 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealEstateAgency"
         mc:Ignorable="d"
-        Title="RegustrationWindow" Height="450" Width="800">
+        Title="RegustrationWindow" Height="450" Width="800" Icon="/free-icon-office-5380554.png">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF63CCA9" Offset="0"/>
+                <GradientStop Color="#FF20E9ED" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="780" Height="414" RenderTransformOrigin="0.499,0.649">
-            <TextBlock Text="Travis Scott" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,15,0,5" Foreground="#FFFFE6E6"/>
-            <Rectangle Height="82" Stroke="#FF669787" Width="87">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="/free-icon-office-5380554.png"/>
-                </Rectangle.Fill>
-            </Rectangle>
-            <TextBlock x:Name="txtBlkFullname" TextWrapping="Wrap" Text="ФИО*" FontSize="16" FontWeight="Bold" Width="54" Foreground="#FFFFE6E6" Margin="-125,20,0,0"/>
-            <TextBox x:Name="txtBxFullname" TextWrapping="Wrap" Text="" Width="183" FontSize="16" FontWeight="Bold" Foreground="#FF2671EC" BorderBrush="#2B579A"/>
-            <TextBlock TextWrapping="Wrap" Text="Email/Number*" Height="28" Width="134" FontSize="16" FontWeight="Bold" Foreground="#FFFFE6E6" Margin="-45,10,0,0"/>
-            <TextBox x:Name="txtBxEmail" TextWrapping="Wrap" Text="" Height="25" Width="181" Foreground="#FF2671EC" BorderBrush="#2B579A" FontSize="16" FontWeight="Bold"/>
-            <TextBlock x:Name="txtBlkPassword" TextWrapping="Wrap" Text="Пароль*" Width="85" FontSize="16" FontWeight="Bold" Foreground="#FFFFE6E6" Margin="-90,10,0,0"/>
-            <PasswordBox x:Name="txtBxPassword" Width="179" Foreground="#FF2671EC" Height="22" BorderBrush="#2B579A" FontSize="16" FontWeight="Bold"/>
-            <TextBlock x:Name="txtBlkPassword2" TextWrapping="Wrap" Text="Подтверждение*" Width="153" FontSize="16" FontWeight="Bold" Foreground="#FFFFE6E6" Margin="-25,10,0,0"/>
-            <PasswordBox x:Name="txtBxPassword2" Width="181" Foreground="#FF2671EC" Height="22" BorderBrush="#2B579A" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <Button x:Name="btnRegistration" Content="Зарегистрироваться" Width="186" Margin="540,15,0,0" Background="Black" BorderBrush="White" Foreground="#FFFFE6E6" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Height="26" Click="btnRegistration_Click"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="390">
+            <TextBlock Text="Регистрация" Foreground="White" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+            <TextBlock Text="ФИО*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtBxFullname" Height="30" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,0,15"/>
+            <TextBlock Text="Email/Number*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+            <Grid Margin="0,0,0,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtBxEmail" Height="30" FontSize="14" VerticalContentAlignment="Center" Grid.Column="0"/>
+                <ComboBox x:Name="cmbDomains" Height="30" FontSize="14" VerticalContentAlignment="Center" Grid.Column="1" SelectedIndex="0">
+                    <ComboBoxItem>@gmail.com</ComboBoxItem>
+                    <ComboBoxItem>@mail.ru</ComboBoxItem>
+                    <ComboBoxItem>@yandex.ru</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            <TextBlock Text="Пароль*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="txtBxPassword" Height="30" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,0,15"/>
+            <TextBlock Text="Подтверждение*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="txtBxPassword2" Height="30" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,0,25"/>
+            <UniformGrid Columns="2" Rows="1" Height="35">
+                <Button x:Name="btnRegistration" Content="Зарегистрироваться" HorizontalAlignment="Left" Padding="15,5" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="White" BorderThickness="1" Cursor="Hand" Click="btnRegistration_Click"/>
+                <Button x:Name="btnLoginback" Content="Закрыть" BorderBrush="White" Foreground="White" Click="btnLoginback_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="Transparent" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </UniformGrid>
         </StackPanel>
     </Grid>
 </Window>

@@ -27,13 +27,13 @@ namespace RealEstateAgency
 
         private void btnOpenLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Окно авторизации в разработке", "Инфо");
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
         }
 
         private void btnOpenRegister_Click(object sender, RoutedEventArgs e)
         {
             RegustrationWindow regustrationWindow = new RegustrationWindow();
-            regustrationWindow.Owner = this;
             regustrationWindow.ShowDialog();
         }
     }

@@ -23,5 +23,13 @@ namespace RealEstateAgency
         {
             InitializeComponent();
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Переходим на окно регистрации...", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.Close();
+            RegustrationWindow regustrationWindow = new RegustrationWindow();
+            regustrationWindow.ShowDialog();
+        }
     }
 }

@@ -23,12 +23,10 @@ namespace RealEstateAgency
         public RegustrationWindow()
         {
             InitializeComponent();
-            txtBlkPassword.IsEnabled = false;
-            txtBlkPassword2.IsEnabled = false;
         }
         private void btnRegistration_Click(object sender, RoutedEventArgs e)
         {
-            string fullname = txtBlkFullname.Text.Trim();
+            string fullname = txtBxFullname.Text.Trim();
             string email = txtBxEmail.Text.Trim();
             string pass1 = txtBxPassword.Password;
             string pass2 = txtBxPassword2.Password;
@@ -69,6 +67,11 @@ namespace RealEstateAgency
             txtBxEmail.Clear();
             txtBxPassword.Clear();
             txtBxPassword2.Clear();
+        }
+
+        private void btnLoginback_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
