@@ -25,9 +25,9 @@
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="txtBxEmail" Height="30" FontSize="14" VerticalContentAlignment="Center" Grid.Column="0"/>
                 <ComboBox x:Name="cmbDomains" Height="30" FontSize="14" VerticalContentAlignment="Center" Grid.Column="1" SelectedIndex="0">
-                    <ComboBoxItem>@gmail.com</ComboBoxItem>
-                    <ComboBoxItem>@mail.ru</ComboBoxItem>
-                    <ComboBoxItem>@yandex.ru</ComboBoxItem>
+                    <ComboBoxItem Content="@gmail.com"/>
+                    <ComboBoxItem Content="@mail.ru"/>
+                    <ComboBoxItem Content="@yandex.ru"/>
                 </ComboBox>
             </Grid>
             <TextBlock Text="Пароль*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
@@ -35,11 +35,11 @@
             <TextBlock Text="Подтверждение*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
             <PasswordBox x:Name="txtBxPassword2" Height="30" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,0,25"/>
             <UniformGrid Columns="2" Rows="1" Height="35">
-                <Button x:Name="btnRegistration" Content="Зарегистрироваться" HorizontalAlignment="Left" Padding="15,5" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="White" BorderThickness="1" Cursor="Hand" Click="btnRegistration_Click"/>
+                <Button x:Name="btnRegistration" Content="Зарегистрироваться" HorizontalAlignment="Left" Padding="15,5" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="White" Click="btnRegistration_Click"/>
                 <Button x:Name="btnLoginback" Content="Закрыть" BorderBrush="White" Foreground="White" Click="btnLoginback_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black"/>
+                            <GradientStop Color="Black" Offset="1"/>
                             <GradientStop Color="Transparent" Offset="0"/>
                         </LinearGradientBrush>
                     </Button.Background>

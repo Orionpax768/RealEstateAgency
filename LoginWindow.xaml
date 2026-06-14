@@ -13,28 +13,28 @@
                 <GradientStop Color="#FF20E9ED" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel VerticalAlignment="Center" Margin="200,0,200,0" Height="265">
+        <StackPanel VerticalAlignment="Top" Margin="166,101,166,0" Height="265">
             <TextBlock Text="Вход в систему" Foreground="White" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
             <TextBlock Text="Email/Number*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
             <Grid Margin="0,0,0,15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="19*"/>
                     <ColumnDefinition Width="378*"/>
-                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="110*"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="txtLogin" Height="25" Grid.ColumnSpan="2"/>
                 <ComboBox x:Name="cmbDomainsLog" Grid.Column="2" Height="25" SelectedIndex="0">
-                    <ComboBoxItem>@gmail.com</ComboBoxItem>
-                    <ComboBoxItem>@mail.ru</ComboBoxItem>
-                    <ComboBoxItem>@yandex.ru</ComboBoxItem>
+                    <ComboBoxItem Content="@gmail.com"/>
+                    <ComboBoxItem Content="@mail.ru"/>
+                    <ComboBoxItem Content="@yandex.ru"/>
                 </ComboBox>
             </Grid>
             <TextBlock Text="Пароль*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
             <PasswordBox x:Name="passLogin" Height="25" Margin="0,0,0,5"/>
             <Button x:Name="btnForgotPassword" Content="Забыли пароль?" Background="Transparent" Foreground="#64B5F6" BorderThickness="0" HorizontalAlignment="Right" Margin="0,0,0,25"/>
             <UniformGrid Columns="2" Rows="1" Height="35">
-                <Button x:Name="btnLogin" Content="Войти" Margin="0,0,5,0"/>
-                <Button x:Name="btnRegister" Content="Регистрация" Margin="5,0,0,0" Click="btnRegister_Click"/>
+                <Button x:Name="btnLogin" Content="Войти" Margin="0,0,5,0" Background="Transparent" BorderBrush="White" Foreground="White" Click="btnLogin_Click"/>
+                <Button x:Name="btnRegister" Content="Регистрация" Margin="5,0,0,0" Click="btnRegister_Click" Background="Transparent" BorderBrush="White" Foreground="White"/>
             </UniformGrid>
         </StackPanel>
     </Grid>

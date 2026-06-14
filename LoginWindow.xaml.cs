@@ -31,5 +31,68 @@ namespace RealEstateAgency
             RegustrationWindow regustrationWindow = new RegustrationWindow();
             regustrationWindow.ShowDialog();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string inputLeftEmail = txtLogin.Text.Trim();
+            string inputPassword = passLogin.Password.Trim();
+            if (String.IsNullOrWhiteSpace(inputLeftEmail) || String.IsNullOrWhiteSpace(inputPassword))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (inputLeftEmail == "admin" && inputPassword == "admin")
+            {
+                MessageBox.Show("Добро пожаловать, Администратор!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                AdminPanelWindow adminWin = new AdminPanelWindow();
+                adminWin.Show();
+                this.Close();
+                return;
+            }
+            ComboBoxItem selectedItem = cmbDomainsLog.SelectedItem as ComboBoxItem;
+            string selectedDomain = "";
+            if (selectedItem != null)
+            {
+                selectedDomain = selectedItem.Content.ToString();
+            }
+            string fullInputEmail = inputLeftEmail + selectedDomain;
+
+            if (RegustrationWindow.UsersDatabase.ContainsKey(fullInputEmail))
+            {
+                List<string> passwords = RegustrationWindow.UsersDatabase[fullInputEmail];
+                if (passwords.Contains(inputPassword))
+                {
+                    passwords.Remove(inputPassword);
+
+                    if (passwords.Count == 1)
+                    {
+                        MessageBoxResult result = MessageBox.Show(
+                            "Внимание! В вашем списке остался всего 1 пароль.\n\nСгенерировать для вас еще 5 случайных паролей?",
+                            "Безопасность системы", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            Random rand = new Random();
+                            for (int i = 0; i < 5; i++)
+                            {
+                                passwords.Add("NewPass" + rand.Next(100, 999));
+                            }
+                            MessageBox.Show("Новые 5 паролей успешно добавлены в ваш список!", "Система");
+                        }
+                    }
+                    if (passwords.Count == 0)
+                    {
+                        RegustrationWindow.UsersDatabase.Remove(fullInputEmail);
+                        MessageBox.Show("Ваш список одноразовых паролей пуст. Доступ запрещен!", "Блокировка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    MessageBox.Show("Авторизация успешна! Вход в систему риелтора...", "Успех");
+                    this.Close();
+                    return;
+                }
+            }
+            MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }

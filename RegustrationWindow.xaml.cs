@@ -19,13 +19,29 @@ namespace RealEstateAgency
     /// </summary>
     public partial class RegustrationWindow : Window
     {
+        public static Dictionary<string, string> PendingRequests = new Dictionary<string, string>();
         public static Dictionary<string, List<string>> UsersDatabase = new Dictionary<string, List<string>>();
         public RegustrationWindow()
         {
             InitializeComponent();
+
+        }
+        static RegustrationWindow()
+        {
+            //Данные администратора
+            string adminEmail = "adminRealEstateAgency@gmail.com";
+            List<string> adminPasswords = new List<string> { "EmiladmimRealEstateAgency" };
+            if (!UsersDatabase.ContainsKey(adminEmail))
+            {
+                UsersDatabase.Add(adminEmail, adminPasswords);
+            }
         }
         private void btnRegistration_Click(object sender, RoutedEventArgs e)
         {
+            //Данные админа
+            string inputEmail = txtBxEmail.Text.Trim();
+            string inputPassword = txtBxPassword.Password;
+            //
             string fullname = txtBxFullname.Text.Trim();
             string email = txtBxEmail.Text.Trim();
             string pass1 = txtBxPassword.Password;
@@ -33,7 +49,7 @@ namespace RealEstateAgency
             if (String.IsNullOrWhiteSpace(fullname))
             {
                 MessageBox.Show("Поле ФИО не заполнено!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return; 
+                return;
             }
             if (String.IsNullOrWhiteSpace(email))
             {
@@ -45,9 +61,22 @@ namespace RealEstateAgency
                 MessageBox.Show("Поле пароль или подтверждение пароля не заполнено!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (UsersDatabase.ContainsKey(email))
+            ComboBoxItem selectedDomainItem = cmbDomains.SelectedItem as ComboBoxItem;
+            string selectedDomain = "";
+            if (selectedDomainItem != null)
+            {
+                selectedDomain = selectedDomainItem.Content.ToString();
+            }
+            string fullEmail = email + selectedDomain;
+
+            if (UsersDatabase.ContainsKey(fullEmail))
             {
                 MessageBox.Show("Пользователь с таким Email уже существует!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (PendingRequests.ContainsKey(fullEmail))
+            {
+                MessageBox.Show("Ваша заявка уже находится на рассмотрении у администратора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             if (pass1 != pass2)
@@ -57,16 +86,19 @@ namespace RealEstateAgency
                 txtBxPassword2.Clear();
                 return;
             }
-            List<string> userPasswordList = new List<string>();
-            userPasswordList.Add(pass1);
-            userPasswordList.Add(pass1 + "1");
-            userPasswordList.Add(pass1 + "2");
-            UsersDatabase.Add(email, userPasswordList);
-            MessageBox.Show($"Вы зарегистрированы!\nДля вас создано {userPasswordList.Count} одноразовых паролей:\n1) {pass1}\n2) {pass1}1\n3) {pass1}2",
-                            "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            PendingRequests.Add(fullEmail, fullname);
+            MessageBox.Show(
+                $"Уважаемый(а) {fullname}, профиль успешно сформирован!\n\n" +
+                "Заявка отправлена администратору. После её одобрения в Панели Администратора " +
+                "система автоматически сгенерирует вам список паролей для входа.",
+                "Заявка создана",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
             txtBxEmail.Clear();
             txtBxPassword.Clear();
             txtBxPassword2.Clear();
+            this.DialogResult = true;
         }
 
         private void btnLoginback_Click(object sender, RoutedEventArgs e)
