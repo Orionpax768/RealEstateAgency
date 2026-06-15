@@ -34,7 +34,7 @@ namespace RealEstateAgency
             {
                 var firstRequest = RegustrationWindow.PendingRequests.First();
                 string email = firstRequest.Key;
-                List<string> passwords = new List<string> { "Pass123", "Pass1231", "Pass1232" };
+                List<string> passwords = new List<string> {"Pass123", "Pass1231", "Pass1232"};
                 RegustrationWindow.UsersDatabase.Add(email, passwords);
                 RegustrationWindow.PendingRequests.Remove(email);
                 MessageBox.Show($"Заявка {email} успешно одобрена!", "Успех");

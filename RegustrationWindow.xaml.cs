@@ -26,22 +26,8 @@ namespace RealEstateAgency
             InitializeComponent();
 
         }
-        static RegustrationWindow()
-        {
-            //Данные администратора
-            string adminEmail = "adminRealEstateAgency@gmail.com";
-            List<string> adminPasswords = new List<string> { "EmiladmimRealEstateAgency" };
-            if (!UsersDatabase.ContainsKey(adminEmail))
-            {
-                UsersDatabase.Add(adminEmail, adminPasswords);
-            }
-        }
         private void btnRegistration_Click(object sender, RoutedEventArgs e)
         {
-            //Данные админа
-            string inputEmail = txtBxEmail.Text.Trim();
-            string inputPassword = txtBxPassword.Password;
-            //
             string fullname = txtBxFullname.Text.Trim();
             string email = txtBxEmail.Text.Trim();
             string pass1 = txtBxPassword.Password;

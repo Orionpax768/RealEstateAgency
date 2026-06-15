@@ -23,7 +23,6 @@ namespace RealEstateAgency
         {
             InitializeComponent();
         }
-
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Переходим на окно регистрации...", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -70,7 +69,6 @@ namespace RealEstateAgency
                         MessageBoxResult result = MessageBox.Show(
                             "Внимание! В вашем списке остался всего 1 пароль.\n\nСгенерировать для вас еще 5 случайных паролей?",
                             "Безопасность системы", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
                         if (result == MessageBoxResult.Yes)
                         {
                             Random rand = new Random();

@@ -17,10 +17,10 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="734" Height="281" RenderTransformOrigin="0.499,0.649">
             <TextBlock x:Name="txtBxNameOrg" Text="Риелторское Агентство" FontSize="24" FontWeight="Bold" Foreground="#2B579A" HorizontalAlignment="Center" Margin="0,0,0,35"/>
             <TextBlock x:Name="txtBxName" Text="Travis Scott" FontSize="18" FontWeight="Bold" Foreground="#FFFFE6E6" Width="102" Margin="0,-30,0,100"/>
-            <Label x:Name="lblRegistr" Content="Вы уже зарегистрированы?" FontSize="16" Foreground="#FF51AEF5" Width="419" BorderBrush="Black"/>
+            <Label x:Name="lblRegistr" HorizontalAlignment="Center" Content="Вы уже зарегистрированы?" FontSize="16" Foreground="#FF51AEF5" Width="215" BorderBrush="Black"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="btnOpenLogin" Content="Войти" Width="140" Height="40" Margin="0,0,100,0" Background="#2B579A" Foreground="White" FontSize="14" FontWeight="Bold" Click="btnOpenLogin_Click"/>
-                <Button x:Name="btnOpenRegister" Content="Зарегистрироваться" Width="180" Height="40" FontSize="14" FontWeight="Bold" Click="btnOpenRegister_Click"/>
+                <Button x:Name="btnOpenLogin" Content="Войти" Width="148" Height="40" Margin="0,0,100,0" Background="#2B579A" Foreground="White" FontSize="14" FontWeight="Bold" Click="btnOpenLogin_Click"/>
+                <Button x:Name="btnOpenRegister" Content="Зарегистрироваться" Width="162" Height="40" FontSize="14" FontWeight="Bold" Click="btnOpenRegister_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
