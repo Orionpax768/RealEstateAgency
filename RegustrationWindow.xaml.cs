@@ -30,8 +30,6 @@ namespace RealEstateAgency
         {
             string fullname = txtBxFullname.Text.Trim();
             string email = txtBxEmail.Text.Trim();
-            string pass1 = txtBxPassword.Password;
-            string pass2 = txtBxPassword2.Password;
             if (String.IsNullOrWhiteSpace(fullname))
             {
                 MessageBox.Show("Поле ФИО не заполнено!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -40,11 +38,6 @@ namespace RealEstateAgency
             if (String.IsNullOrWhiteSpace(email))
             {
                 MessageBox.Show("Поле email не заполнено!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (String.IsNullOrWhiteSpace(pass1) || String.IsNullOrWhiteSpace(pass2))
-            {
-                MessageBox.Show("Поле пароль или подтверждение пароля не заполнено!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             ComboBoxItem selectedDomainItem = cmbDomains.SelectedItem as ComboBoxItem;
@@ -65,13 +58,6 @@ namespace RealEstateAgency
                 MessageBox.Show("Ваша заявка уже находится на рассмотрении у администратора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (pass1 != pass2)
-            {
-                MessageBox.Show("Пароли не совпадают!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                txtBxPassword.Clear();
-                txtBxPassword2.Clear();
-                return;
-            }
             PendingRequests.Add(fullEmail, fullname);
             MessageBox.Show(
                 $"Уважаемый(а) {fullname}, профиль успешно сформирован!\n\n" +
@@ -82,14 +68,13 @@ namespace RealEstateAgency
                 MessageBoxImage.Information
             );
             txtBxEmail.Clear();
-            txtBxPassword.Clear();
-            txtBxPassword2.Clear();
             this.DialogResult = true;
         }
 
         private void btnLoginback_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+        {            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
     }
 }

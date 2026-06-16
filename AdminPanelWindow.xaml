@@ -16,7 +16,14 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Одобрение заявки" Foreground="White" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
             <DataGrid x:Name="dgRequests" Height="200" Width="600" AutoGenerateColumns="True" Margin="0,0,0,20"/>
-            <Button x:Name="btnApprove" Content="Одобрить заявку" Width="200" Height="40" FontSize="14" FontWeight="Bold" Click="btnApprove_Click"/>
+            <Button x:Name="btnApprove" Content="Одобрить заявку" Width="200" Height="40" FontSize="14" FontWeight="Bold" Click="btnApprove_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#FF04FF36" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -26,9 +26,9 @@ namespace RealEstateAgency
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Переходим на окно регистрации...", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
             RegustrationWindow regustrationWindow = new RegustrationWindow();
-            regustrationWindow.ShowDialog();
+            regustrationWindow.Show();
+            Close();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -46,7 +46,7 @@ namespace RealEstateAgency
 
                 AdminPanelWindow adminWin = new AdminPanelWindow();
                 adminWin.Show();
-                this.Close();
+                Close();
                 return;
             }
             ComboBoxItem selectedItem = cmbDomainsLog.SelectedItem as ComboBoxItem;
@@ -86,7 +86,7 @@ namespace RealEstateAgency
                         return;
                     }
                     MessageBox.Show("Авторизация успешна! Вход в систему риелтора...", "Успех");
-                    this.Close();
+                    Close();
                     return;
                 }
             }

@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF20E9ED" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="390">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="279">
             <TextBlock Text="Регистрация" Foreground="White" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
             <TextBlock Text="ФИО*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
             <TextBox x:Name="txtBxFullname" Height="30" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,0,15"/>
@@ -30,20 +30,10 @@
                     <ComboBoxItem Content="@yandex.ru"/>
                 </ComboBox>
             </Grid>
-            <TextBlock Text="Пароль*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
-            <PasswordBox x:Name="txtBxPassword" Height="30" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,0,15"/>
-            <TextBlock Text="Подтверждение*" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
-            <PasswordBox x:Name="txtBxPassword2" Height="30" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,0,25"/>
+            <TextBlock Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
             <UniformGrid Columns="2" Rows="1" Height="35">
-                <Button x:Name="btnRegistration" Content="Зарегистрироваться" HorizontalAlignment="Left" Padding="15,5" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="White" Click="btnRegistration_Click"/>
-                <Button x:Name="btnLoginback" Content="Закрыть" BorderBrush="White" Foreground="White" Click="btnLoginback_Click">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="1"/>
-                            <GradientStop Color="Transparent" Offset="0"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
+                <Button x:Name="btnRegistration" Content="Зарегистрироваться" HorizontalAlignment="Left" Padding="15,5" FontSize="16" Foreground="White" BorderBrush="White" Click="btnRegistration_Click" Background="{x:Null}"/>
+                <Button x:Name="btnLoginback" Content="Закрыть" HorizontalAlignment="Center" BorderBrush="White" Padding="15,5" FontSize="16" Foreground="White" Click="btnLoginback_Click" Width="200" Background="{x:Null}"/>
             </UniformGrid>
         </StackPanel>
     </Grid>

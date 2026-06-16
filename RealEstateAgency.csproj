@@ -64,7 +64,6 @@
     <Compile Include="RegustrationWindow.xaml.cs">
       <DependentUpon>RegustrationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserSessionCache.cs" />
     <Page Include="AdminPanelWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

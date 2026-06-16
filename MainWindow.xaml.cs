@@ -28,13 +28,15 @@ namespace RealEstateAgency
         private void btnOpenLogin_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();
-            loginWindow.ShowDialog();
+            loginWindow.Show();
+            Close();
         }
 
         private void btnOpenRegister_Click(object sender, RoutedEventArgs e)
         {
             RegustrationWindow regustrationWindow = new RegustrationWindow();
-            regustrationWindow.ShowDialog();
+            regustrationWindow.Show();
+            Close();
         }
     }
 }

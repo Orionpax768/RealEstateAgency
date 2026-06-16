@@ -30,20 +30,31 @@ namespace RealEstateAgency
 
         private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
-            if (RegustrationWindow.PendingRequests.Count > 0)
+            if (dgRequests.SelectedItem == null)
             {
-                var firstRequest = RegustrationWindow.PendingRequests.First();
-                string email = firstRequest.Key;
-                List<string> passwords = new List<string> {"Pass123", "Pass1231", "Pass1232"};
-                RegustrationWindow.UsersDatabase.Add(email, passwords);
-                RegustrationWindow.PendingRequests.Remove(email);
-                MessageBox.Show($"Заявка {email} успешно одобрена!", "Успех");
-                dgRequests.ItemsSource = RegustrationWindow.PendingRequests.ToList();
+                MessageBox.Show("Выберите заявку из таблицы!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Нет активных заявок!", "Инфо");
-            }
+            KeyValuePair<string, string> selectedRequest = (KeyValuePair<string, string>)dgRequests.SelectedItem;
+            string email = selectedRequest.Key;
+            string name = selectedRequest.Value;
+            Random rand = new Random();
+            int randomNumber = rand.Next(100, 10000);
+            string basePassword = "Pass" + randomNumber;
+            List<string> passwords = new List<string>();
+            passwords.Add(basePassword);
+            passwords.Add(basePassword + "1");
+            passwords.Add(basePassword + "2");
+            RegustrationWindow.UsersDatabase.Add(email, passwords);
+            RegustrationWindow.PendingRequests.Remove(email);
+            string messageText = "Заявка сотрудника " + name + " успешно одобрена!\n\n" +
+                                 "Передайте ему созданные пароли для входа:\n" +
+                                 "1-й вход: " + basePassword + "\n" +
+                                 "2-й вход: " + basePassword + "1\n" +
+                                 "3-й вход: " + basePassword + "2";
+
+            MessageBox.Show(messageText, "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            dgRequests.ItemsSource = RegustrationWindow.PendingRequests.ToList();
         }
     }
 }
