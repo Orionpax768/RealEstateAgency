@@ -55,8 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddObjectWindow.xaml.cs">
+      <DependentUpon>AddObjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPanelWindow.xaml.cs">
       <DependentUpon>AdminPanelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogWindow.xaml.cs">
+      <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -64,7 +70,15 @@
     <Compile Include="RegustrationWindow.xaml.cs">
       <DependentUpon>RegustrationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddObjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminPanelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CatalogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

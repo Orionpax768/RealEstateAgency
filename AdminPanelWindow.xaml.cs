@@ -22,6 +22,12 @@ namespace RealEstateAgency
         public AdminPanelWindow()
         {
             InitializeComponent();
+            RefreshTable();
+        }
+
+        private void RefreshTable()
+        {
+            dgRequests.ItemsSource = null;
             if (RegustrationWindow.PendingRequests != null)
             {
                 dgRequests.ItemsSource = RegustrationWindow.PendingRequests.ToList();
@@ -35,11 +41,12 @@ namespace RealEstateAgency
                 MessageBox.Show("Выберите заявку из таблицы!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+
             KeyValuePair<string, string> selectedRequest = (KeyValuePair<string, string>)dgRequests.SelectedItem;
             string email = selectedRequest.Key;
             string name = selectedRequest.Value;
             Random rand = new Random();
-            int randomNumber = rand.Next(100, 10000);
+            int randomNumber = rand.Next(1000, 10000);
             string basePassword = "Pass" + randomNumber;
             List<string> passwords = new List<string>();
             passwords.Add(basePassword);
@@ -51,10 +58,37 @@ namespace RealEstateAgency
                                  "Передайте ему созданные пароли для входа:\n" +
                                  "1-й вход: " + basePassword + "\n" +
                                  "2-й вход: " + basePassword + "1\n" +
-                                 "3-й вход: " + basePassword + "2";
-
+                                 "3-й вход: " + basePassword + "2\n\n" +
+                                 "Пароли автоматически сотрутся после использования!";
             MessageBox.Show(messageText, "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-            dgRequests.ItemsSource = RegustrationWindow.PendingRequests.ToList();
+            RefreshTable();
+        }
+
+        private void btnReject_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgRequests.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите заявку для отклонения!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            KeyValuePair<string, string> selectedRequest = (KeyValuePair<string, string>)dgRequests.SelectedItem;
+            RegustrationWindow.PendingRequests.Remove(selectedRequest.Key);
+            MessageBox.Show("Заявка пользователя " + selectedRequest.Value + " успешно отклонена.", "Готово");
+            RefreshTable();
+        }
+
+        private void btnGoToCatalog_Click(object sender, RoutedEventArgs e)
+        {
+            CatalogWindow catalogWin = new CatalogWindow(true);
+            catalogWin.Owner = this;
+            catalogWin.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWin = new MainWindow();
+            mainWin.Show();
+            this.Close();
         }
     }
 }

@@ -60,19 +60,21 @@ namespace RealEstateAgency
             }
             PendingRequests.Add(fullEmail, fullname);
             MessageBox.Show(
-                $"Уважаемый(а) {fullname}, профиль успешно сформирован!\n\n" +
+                $"Уважаемый(ая) {fullname}, профиль успешно сформирован!\n\n" +
                 "Заявка отправлена администратору. После её одобрения в Панели Администратора " +
                 "система автоматически сгенерирует вам список паролей для входа.",
                 "Заявка создана",
                 MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+                MessageBoxImage.Information);
             txtBxEmail.Clear();
-            this.DialogResult = true;
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
 
         private void btnLoginback_Click(object sender, RoutedEventArgs e)
-        {            MainWindow mainWindow = new MainWindow();
+        {            
+            MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
         }

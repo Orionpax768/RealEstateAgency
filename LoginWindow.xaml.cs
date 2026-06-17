@@ -35,6 +35,7 @@ namespace RealEstateAgency
         {
             string inputLeftEmail = txtLogin.Text.Trim();
             string inputPassword = passLogin.Password.Trim();
+
             if (String.IsNullOrWhiteSpace(inputLeftEmail) || String.IsNullOrWhiteSpace(inputPassword))
             {
                 MessageBox.Show("Пожалуйста, заполните все поля!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -46,24 +47,23 @@ namespace RealEstateAgency
 
                 AdminPanelWindow adminWin = new AdminPanelWindow();
                 adminWin.Show();
-                Close();
+                this.Close();
                 return;
             }
-            ComboBoxItem selectedItem = cmbDomainsLog.SelectedItem as ComboBoxItem;
+            ComboBoxItem selectedDomainItem = cmbDomainsLog.SelectedItem as ComboBoxItem;
             string selectedDomain = "";
-            if (selectedItem != null)
+            if (selectedDomainItem != null)
             {
-                selectedDomain = selectedItem.Content.ToString();
+                selectedDomain = selectedDomainItem.Content.ToString();
             }
             string fullInputEmail = inputLeftEmail + selectedDomain;
-
             if (RegustrationWindow.UsersDatabase.ContainsKey(fullInputEmail))
             {
                 List<string> passwords = RegustrationWindow.UsersDatabase[fullInputEmail];
+
                 if (passwords.Contains(inputPassword))
                 {
                     passwords.Remove(inputPassword);
-
                     if (passwords.Count == 1)
                     {
                         MessageBoxResult result = MessageBox.Show(
@@ -85,11 +85,14 @@ namespace RealEstateAgency
                         MessageBox.Show("Ваш список одноразовых паролей пуст. Доступ запрещен!", "Блокировка", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
-                    MessageBox.Show("Авторизация успешна! Вход в систему риелтора...", "Успех");
-                    Close();
+                    MessageBox.Show("Авторизация успешна! Переход в каталог объектов...", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CatalogWindow catalogWindow = new CatalogWindow();
+                    catalogWindow.Show();
+                    this.Close();
                     return;
                 }
             }
+
             MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }

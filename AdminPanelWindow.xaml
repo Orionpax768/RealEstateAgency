@@ -13,17 +13,23 @@
                 <GradientStop Color="#FF20E9ED" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Одобрение заявки" Foreground="White" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-            <DataGrid x:Name="dgRequests" Height="200" Width="600" AutoGenerateColumns="True" Margin="0,0,0,20"/>
-            <Button x:Name="btnApprove" Content="Одобрить заявку" Width="200" Height="40" FontSize="14" FontWeight="Bold" Click="btnApprove_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="1"/>
-                        <GradientStop Color="#FF04FF36" Offset="0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+
+        <StackPanel Margin="30,10,30,28">
+            <TextBlock Text="Панель Администратора" Foreground="White" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <DataGrid x:Name="dgRequests" AutoGenerateColumns="False" FontWeight="Bold" Height="260" Background="#0B5351" RowBackground="#0B5351" Foreground="#FF040404" FontSize="14">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Email (Логин)" Binding="{Binding Key}" Width="*"/>
+                    <DataGridTextColumn Header="ФИО сотрудника" Binding="{Binding Value}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <UniformGrid Columns="4" Height="40" Margin="0,20,0,0">
+                <Button x:Name="btnApprove" Content="Одобрить заявку" Margin="0,0,5,0" Background="Transparent" BorderBrush="White" Foreground="White" FontSize="12" FontWeight="Bold" Click="btnApprove_Click"/>
+                <Button x:Name="btnReject" Content="Отклонить" Margin="5,0,5,0" Background="Transparent" BorderBrush="White" Foreground="White" FontSize="12" FontWeight="Bold" Click="btnReject_Click"/>
+                <Button x:Name="btnGoToCatalog" Content="Каталог объектов" Margin="5,0,5,0" Background="Transparent" BorderBrush="White" Foreground="White" FontSize="11" FontWeight="Bold" Click="btnGoToCatalog_Click"/>
+                <Button x:Name="btnExit" Content="Закрыть" Margin="5,0,0,0" Background="Transparent" BorderBrush="White" Foreground="White" FontSize="12" FontWeight="Bold" Click="btnExit_Click"/>
+            </UniformGrid>
         </StackPanel>
     </Grid>
 </Window>
