@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealEstateAgency"
         mc:Ignorable="d"
-        Title="CatalogWindow" Height="450" Width="800">
+        Title="CatalogWindow" Height="450" Width="800" Icon="/free-icon-office-5380554.png">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -35,7 +35,7 @@
                     <Button x:Name="tagPrice" Content="[До 10 млн ₽]" Margin="5,0,0,0" Background="Transparent" Foreground="White" BorderThickness="0" Cursor="Hand" Click="tagFilter_Click"/>
                 </WrapPanel>
             </StackPanel>
-            <DataGrid x:Name="dgCatalog" Grid.Row="1" AutoGenerateColumns="False" Background="#0B5351" RowBackground="#0B5351" Foreground="White" FontSize="14" Margin="-10,0,10,0">
+            <DataGrid x:Name="dgCatalog" Grid.Row="1" AutoGenerateColumns="False" Background="#0B5351" RowBackground="#0B5351" Foreground="Black" FontSize="14" Margin="-10,0,10,0" FontWeight="Bold">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Тип объекта" Binding="{Binding Title}" Width="1.5*"/>
                     <DataGridTextColumn Header="Цена (млн ₽)" Binding="{Binding Price}" Width="*"/>

@@ -58,7 +58,7 @@ namespace RealEstateAgency
             {
                 PropertiesDatabase.Add(new PropertyObject { Title = "2-к. квартира", Price = 12.5, Area = 56, Floor = "7/17", Address = "Центральный район, ул. Ленина, 24", Status = "Свободно" });
                 PropertiesDatabase.Add(new PropertyObject { Title = "Студия", Price = 5.2, Area = 28, Floor = "3/9", Address = "Первомайский район, ул. Кирова, 12", Status = "Забронировано" });
-                PropertiesDatabase.Add(new PropertyObject { Title = "Дом", Price = 25.0, Area = 150, Floor = "1/2", Address = "Октябрьский район, ул. Лесная, 5", Status = "Продано / Аренда" });
+                PropertiesDatabase.Add(new PropertyObject { Title = "Дом", Price = 25.0, Area = 150, Floor = "1/2", Address = "Октябрьский район, ул. Лесная, 5", Status = "Продано" });
             }
         }
 
@@ -71,7 +71,6 @@ namespace RealEstateAgency
         private void btnChangeStatus_Click(object sender, RoutedEventArgs e)
         {
             PropertyObject selectedObj = dgCatalog.SelectedItem as PropertyObject;
-
             if (selectedObj == null)
             {
                 MessageBox.Show("Выберите объект из таблицы для изменения его статуса!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -83,13 +82,15 @@ namespace RealEstateAgency
             }
             else if (selectedObj.Status == "Забронировано")
             {
-                selectedObj.Status = "Продано / Аренда";
+                selectedObj.Status = "Продано";
             }
-            else
+            else if (selectedObj.Status == "Продано")
             {
-                selectedObj.Status = "Свободно";
+                selectedObj.Status = "Аренда";
             }
-            MessageBox.Show("Статус объекта на '" + selectedObj.Address + "' успешно изменен на: " + selectedObj.Status, "Статус обновлен");
+            else 
+            { selectedObj.Status = "Свободно"; }
+            MessageBox.Show("Статус объекта на '' + selectedObj.Address + '' успешно изменен на: " + selectedObj.Status, "Статус обновлен");
             RefreshCatalogTable();
         }
 

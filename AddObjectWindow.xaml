@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealEstateAgency"
         mc:Ignorable="d"
-        Title="Добавление объекта недвижимости" Height="450" Width="800">
+        Title="Добавление объекта недвижимости" Height="450" Width="800" Icon="/free-icon-office-5380554.png">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

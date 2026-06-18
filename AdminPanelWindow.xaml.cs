@@ -41,17 +41,19 @@ namespace RealEstateAgency
                 MessageBox.Show("Выберите заявку из таблицы!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+            dynamic selectedRow = dgRequests.SelectedItem;
+            string email = selectedRow.Key;
+            string name = selectedRow.Value;
 
-            KeyValuePair<string, string> selectedRequest = (KeyValuePair<string, string>)dgRequests.SelectedItem;
-            string email = selectedRequest.Key;
-            string name = selectedRequest.Value;
             Random rand = new Random();
             int randomNumber = rand.Next(1000, 10000);
             string basePassword = "Pass" + randomNumber;
+
             List<string> passwords = new List<string>();
             passwords.Add(basePassword);
             passwords.Add(basePassword + "1");
             passwords.Add(basePassword + "2");
+
             RegustrationWindow.UsersDatabase.Add(email, passwords);
             RegustrationWindow.PendingRequests.Remove(email);
             string messageText = "Заявка сотрудника " + name + " успешно одобрена!\n\n" +
@@ -59,7 +61,7 @@ namespace RealEstateAgency
                                  "1-й вход: " + basePassword + "\n" +
                                  "2-й вход: " + basePassword + "1\n" +
                                  "3-й вход: " + basePassword + "2\n\n" +
-                                 "Пароли автоматически сотрутся после использования!";
+                                 "Пароли автоматически стираются после использования!";
             MessageBox.Show(messageText, "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
             RefreshTable();
         }
@@ -71,9 +73,11 @@ namespace RealEstateAgency
                 MessageBox.Show("Выберите заявку для отклонения!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            KeyValuePair<string, string> selectedRequest = (KeyValuePair<string, string>)dgRequests.SelectedItem;
-            RegustrationWindow.PendingRequests.Remove(selectedRequest.Key);
-            MessageBox.Show("Заявка пользователя " + selectedRequest.Value + " успешно отклонена.", "Готово");
+            dynamic selectedRow = dgRequests.SelectedItem;
+            string emailKey = selectedRow.Key;
+            string nameValue = selectedRow.Value;
+            RegustrationWindow.PendingRequests.Remove(emailKey);
+            MessageBox.Show("Заявка пользователя " + nameValue + " успешно отклонена.", "Готово");
             RefreshTable();
         }
 
